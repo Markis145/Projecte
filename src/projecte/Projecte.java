@@ -21,8 +21,37 @@ public class Projecte {
         Scanner ent=new Scanner(System.in);
         String nom=null;
         String genere=null;
-        double asadas=0.0;
-        boolean forat=false;
+        double preu=0.0;
+        boolean multijugador=false;
+        int hores=0, menu=0;
+        
+        System.out.println("-------MENU-------");
+        System.out.println("Selecciona la opció desitjada");
+        System.out.println("0. Sortir");
+        System.out.println("1. Insertar videojoc");
+        System.out.println("2. Borrar videojocs");
+        System.out.println("3. Modificar videojoc");
+        System.out.println("4. Llistar videojocs");
+        menu=ent.nextInt();
+        
+        switch (menu) {
+            case 0:
+                break;
+            case 1:
+                System.out.println("asdad");
+                break;
+            case 2:
+                System.out.println("asdkjlasd");
+                break;
+            case 3:
+                System.out.println("akdopasdsald");
+                break;
+            case 4:
+                System.out.println("aklsdjaskldjaslkd");
+                break;
+              
+                
+        }
     }
     
 }
