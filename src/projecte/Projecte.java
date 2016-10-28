@@ -24,6 +24,7 @@ public class Projecte {
         double preu = 0.0;
         boolean multijugador = false, omplit = false;
         int hores = 0, menu = 5;
+        char esMulti = ' ';
 
         while (!(menu < 1)) {
             System.out.println("-------MENU-------");
@@ -40,10 +41,25 @@ public class Projecte {
                     System.out.println("Sortint del programa...");
                     break;
                 case 1:
-                    if (!(omplit=true)) {
+                    if (omplit != true) {
                         System.out.println("Inserta les dades sobre el videojoc");
+                        System.out.println("Escriu el nom del joc:");
+                        nom = ent.skip("[\r\n]*").nextLine();
+                        System.out.println("Escriu el genere del joc:");
+                        genere = ent.skip("[\r\n]*").nextLine();
+                        System.out.println("Es multijugador?? (Si/No)");
+                        do {
+                            esMulti = ent.nextLine().toUpperCase().charAt(0);
+                        } while (esMulti != 'S' && esMulti != 'N');
+                        multijugador = (esMulti == 'S');
+                        System.out.println("Quantes hores dura??");
+                        hores=ent.nextInt();
+                        System.out.println("Quant costa??");
+                        preu=ent.nextDouble();                   
+                        omplit = true;
+                    } else {
+                        System.out.println("Ja has introduït les dades, hauras de borrarles primer");
                     }
-                    omplit = true;
                     break;
                 case 2:
                     System.out.println("asdkjlasd");
