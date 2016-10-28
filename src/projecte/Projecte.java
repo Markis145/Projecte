@@ -24,7 +24,7 @@ public class Projecte {
         double preu = 0.0;
         boolean multijugador = false, omplit = false;
         int hores = 0, menu = 5;
-        char esMulti = ' ';
+        char esMulti = ' ', llista = ' ';
 
         while (!(menu < 1)) {
             System.out.println("-------MENU-------");
@@ -62,7 +62,15 @@ public class Projecte {
                     }
                     break;
                 case 2:
-                    System.out.println("asdkjlasd");
+                    System.out.println("Vols veure les dades del joc?");
+                    do {
+                            llista = ent.nextLine().toUpperCase().charAt(0);
+                        } while (llista != 'S' && llista != 'N');
+                    System.out.println("Nom: "+nom);
+                    System.out.println("Genere: "+genere);
+                    System.out.println("Multijugador (si,no): "+multijugador);
+                    System.out.println("Hores de duració: "+hores);
+                    System.out.println("Preu: "+preu);
                     omplit = false;
                     break;
                 case 3:
