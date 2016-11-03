@@ -63,13 +63,12 @@ public class Projecte {
                     break;
                 case 2:
                     if (omplit != false) {
-
                         System.out.println("Vols veure les dades del joc?(Si/No)");
                         do {
                             esLlista = ent.skip("[\r\n]*").nextLine().toUpperCase().charAt(0);
                         } while (esLlista != 'S' && esLlista != 'N');
                         llista = (esLlista == 'S');
-                        if (llista = true) {
+                        if (llista != false) {
                             System.out.println("Nom: " + nom);
                             System.out.println("Genere: " + genere);
                             System.out.println("Multijugador (si,no): " + multijugador);
@@ -91,7 +90,23 @@ public class Projecte {
                             } else {
                                 System.out.println("Tonces pa que?");
                             }
-                            // } else {
+                        } else {
+                            System.out.println("Segur que el vols borrar? (Si/No)");
+                            do {
+                                esBorra = ent.skip("[\r\n]*").nextLine().toUpperCase().charAt(0);
+                            } while (esBorra != 'S' && esBorra != 'N');
+                            borrar = (esLlista == 'S');
+                            if (borrar = true) {
+                                nom = null;
+                                genere = null;
+                                multijugador = false;
+                                hores = 0;
+                                preu = 0;
+                                System.out.println("Dades borrades!");
+                                omplit = false;
+                            } else {
+                                System.out.println("Tonces pa que?");
+                            }
                         }
                     } else {
                         System.out.println("No hi ha res a borrar!");
@@ -105,7 +120,7 @@ public class Projecte {
                             esLlista = ent.skip("[\r\n]*").nextLine().toUpperCase().charAt(0);
                         } while (esLlista != 'S' && esLlista != 'N');
                         llista = (esLlista == 'S');
-                        if (llista = true) {
+                        if (llista != false) {
                             System.out.println("Nom: " + nom);
                             System.out.println("Genere: " + genere);
                             System.out.println("Multijugador (si,no): " + multijugador);
@@ -123,14 +138,15 @@ public class Projecte {
                                     esLlista = ent.skip("[\r\n]*").nextLine().toUpperCase().charAt(0);
                                 } while (esLlista != 'S' && esLlista != 'N');
                                 llista = (esLlista == 'S');
-                                if (llista!=false){
+                                if (llista != false) {
                                     System.out.println("Introdueix un nou nom: ");
                                     nom = ent.skip("[\r\n]*").nextLine();
                                 }
                             } else {
                                 System.out.println("Tonces pa que?");
                             }
-                            // } else {
+                        } else {
+
                         }
                     }
 
