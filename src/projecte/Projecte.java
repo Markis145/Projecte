@@ -22,9 +22,9 @@ public class Projecte {
         String nom = null;
         String genere = null;
         double preu = 0.0;
-        boolean multijugador = false, omplit = false;
+        boolean multijugador = false, omplit = false, llista = false, borrar = false;
         int hores = 0, menu = 5;
-        char esMulti = ' ', llista = ' ';
+        char esMulti = ' ', esLlista = ' ', esBorra = ' ';
 
         while (!(menu < 1)) {
             System.out.println("-------MENU-------");
@@ -34,7 +34,7 @@ public class Projecte {
             System.out.println("2. Borrar videojocs");
             System.out.println("3. Modificar videojoc");
             System.out.println("4. Llistar videojocs");
-            menu = ent.nextInt();
+            menu = ent.skip("[\r\n]*").nextInt();
 
             switch (menu) {
                 case 0:
@@ -53,31 +53,98 @@ public class Projecte {
                         } while (esMulti != 'S' && esMulti != 'N');
                         multijugador = (esMulti == 'S');
                         System.out.println("Quantes hores dura??");
-                        hores=ent.nextInt();
+                        hores = ent.nextInt();
                         System.out.println("Quant costa??");
-                        preu=ent.nextDouble();                   
+                        preu = ent.nextDouble();
                         omplit = true;
                     } else {
                         System.out.println("Ja has introduït les dades, hauras de borrarles primer");
                     }
                     break;
                 case 2:
-                    System.out.println("Vols veure les dades del joc?");
-                    do {
-                            llista = ent.nextLine().toUpperCase().charAt(0);
-                        } while (llista != 'S' && llista != 'N');
-                    System.out.println("Nom: "+nom);
-                    System.out.println("Genere: "+genere);
-                    System.out.println("Multijugador (si,no): "+multijugador);
-                    System.out.println("Hores de duració: "+hores);
-                    System.out.println("Preu: "+preu);
-                    omplit = false;
+                    if (omplit != false) {
+
+                        System.out.println("Vols veure les dades del joc?(Si/No)");
+                        do {
+                            esLlista = ent.skip("[\r\n]*").nextLine().toUpperCase().charAt(0);
+                        } while (esLlista != 'S' && esLlista != 'N');
+                        llista = (esLlista == 'S');
+                        if (llista = true) {
+                            System.out.println("Nom: " + nom);
+                            System.out.println("Genere: " + genere);
+                            System.out.println("Multijugador (si,no): " + multijugador);
+                            System.out.println("Hores de duració: " + hores);
+                            System.out.println("Preu: " + preu);
+                            System.out.println("Segur que el vols borrar? (Si/No)");
+                            do {
+                                esBorra = ent.skip("[\r\n]*").nextLine().toUpperCase().charAt(0);
+                            } while (esBorra != 'S' && esBorra != 'N');
+                            borrar = (esLlista == 'S');
+                            if (borrar != false) {
+                                nom = null;
+                                genere = null;
+                                multijugador = false;
+                                hores = 0;
+                                preu = 0;
+                                System.out.println("Dades borrades!");
+                                omplit = false;
+                            } else {
+                                System.out.println("Tonces pa que?");
+                            }
+                            // } else {
+                        }
+                    } else {
+                        System.out.println("No hi ha res a borrar!");
+                    }
+
                     break;
                 case 3:
-                    System.out.println("akdopasdsald");
+                    if (omplit != false) {
+                        System.out.println("Vols veure les dades del joc?(Si/No)");
+                        do {
+                            esLlista = ent.skip("[\r\n]*").nextLine().toUpperCase().charAt(0);
+                        } while (esLlista != 'S' && esLlista != 'N');
+                        llista = (esLlista == 'S');
+                        if (llista = true) {
+                            System.out.println("Nom: " + nom);
+                            System.out.println("Genere: " + genere);
+                            System.out.println("Multijugador (si,no): " + multijugador);
+                            System.out.println("Hores de duració: " + hores);
+                            System.out.println("Preu: " + preu);
+                            System.out.println("Vols modificar les dades del joc? (Si/No)");
+                            do {
+                                esLlista = ent.skip("[\r\n]*").nextLine().toUpperCase().charAt(0);
+                            } while (esLlista != 'S' && esLlista != 'N');
+                            llista = (esLlista == 'S');
+                            if (llista != false) {
+                                System.out.println("Nom: " + nom);
+                                System.out.println("Vols modificar el nom?(Si/No)");
+                                do {
+                                    esLlista = ent.skip("[\r\n]*").nextLine().toUpperCase().charAt(0);
+                                } while (esLlista != 'S' && esLlista != 'N');
+                                llista = (esLlista == 'S');
+                                if (llista!=false){
+                                    System.out.println("Introdueix un nou nom: ");
+                                    nom = ent.skip("[\r\n]*").nextLine();
+                                }
+                            } else {
+                                System.out.println("Tonces pa que?");
+                            }
+                            // } else {
+                        }
+                    }
+
                     break;
                 case 4:
-                    System.out.println("aklsdjaskldjaslkd");
+                    if (omplit != false) {
+                        System.out.println("Nom: " + nom);
+                        System.out.println("Genere: " + genere);
+                        System.out.println("Multijugador (si,no): " + multijugador);
+                        System.out.println("Hores de duració: " + hores);
+                        System.out.println("Preu: " + preu);
+                    } else {
+                        System.out.println("Why you do this?");
+                    }
                     break;
                 default:
                     System.out.println("Opció incorrecta! GTFO");
