@@ -12,12 +12,23 @@ import java.util.Scanner;
  * @author alumne
  */
 public class Projecte {
+    
+    private static final int MAX_JOCS=2;
+    
+    private static Joc[] array=new Pilot[MAX_JOCS]
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Joc[] array=new Joc[MAX_JOCS];
+        int i=0;
+        String s=new String("");s="";
+        Joc
+        
+        
+        
         Scanner ent = new Scanner(System.in);
         String nom = null;
         String genere = null;
@@ -41,7 +52,7 @@ public class Projecte {
                     System.out.println("Sortint del programa...");
                     break;
                 case 1:
-                    if (omplit != true) {
+                    if (i<array.length) {
                         System.out.println("Inserta les dades sobre el videojoc");
                         System.out.println("Escriu el nom del joc:");
                         nom = ent.skip("[\r\n]*").nextLine();
@@ -106,6 +117,7 @@ public class Projecte {
                                 omplit = false;
                             } else {
                                 System.out.println("Tonces pa que?");
+                                System.out.println("monguer");
                             }
                         }
                     } else {
